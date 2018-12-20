@@ -13,8 +13,11 @@ $ npm install single-line-logger
 ## Quick Start
 
 ```js
-const { _lg } = require('single-line-logger')
+const { _lg, _err } = require('single-line-logger')
 
 // log to stdout on a single line
-_lg('Error:', new Error('my multiline error'))
+_lg('Error:', new Error('my multiline error #1'))
+
+// log to stderr on a single line
+_err('Error:', new Error('my multiline error#2'))
 ```
