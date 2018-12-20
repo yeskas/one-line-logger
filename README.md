@@ -7,13 +7,13 @@ It's particularly useful if your log-tracking tool shows the output of console.l
 ## Installation
 
 ```shell
-$ npm install @yeskas/one-line-logger
+$ npm install single-line-logger
 ```
 
 ## Quick Start
 
 ```js
-const { _lg } = require('@yeskas/one-line-logger')
+const { _lg } = require('single-line-logger')
 
 // log to stdout on a single line
 _lg('Error:', new Error('my multiline error'))

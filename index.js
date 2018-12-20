@@ -10,8 +10,13 @@ function to_one_line(obj) {
         return obj
     }
 
-    if (['boolean', 'number', 'string'].includes(typeof obj)) {
+    if (['boolean', 'number'].includes(typeof obj)) {
         return obj
+    }
+
+    if ((typeof obj) == 'string') {
+        // escape white space
+        return JSON.stringify(obj)
     }
 
     try {

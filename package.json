@@ -1,5 +1,5 @@
 {
-  "name": "one-line-logger",
+  "name": "single-line-logger",
   "version": "1.0.0",
   "description": "Node.js helper function that logs all params as one line to stdout",
   "main": "index.js",
