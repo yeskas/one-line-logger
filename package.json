@@ -1,0 +1,28 @@
+{
+  "name": "one-line-logger",
+  "version": "1.0.0",
+  "description": "Node.js helper function that logs all params as one line to stdout",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeskas/one-line-logger.git"
+  },
+  "keywords": [
+    "log",
+    "line",
+    "stdout",
+    "minify"
+  ],
+  "author": "yeskas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yeskas/one-line-logger/issues"
+  },
+  "homepage": "https://github.com/yeskas/one-line-logger#readme",
+  "dependencies": {
+    "serialize-error": "^3.0.0"
+  }
+}
