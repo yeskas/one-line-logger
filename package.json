@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yeskas/one-line-logger.git"
+    "url": "git+https://github.com/yeskas/single-line-logger.git"
   },
   "keywords": [
     "log",
@@ -19,9 +19,9 @@
   "author": "yeskas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yeskas/one-line-logger/issues"
+    "url": "https://github.com/yeskas/single-line-logger/issues"
   },
-  "homepage": "https://github.com/yeskas/one-line-logger#readme",
+  "homepage": "https://github.com/yeskas/single-line-logger#readme",
   "dependencies": {
     "serialize-error": "^3.0.0"
   }

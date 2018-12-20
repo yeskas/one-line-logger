@@ -1,4 +1,4 @@
-# one-line-logger
+# single-line-logger
 
 A thin layer on top of console.log() that makes sure the output stays on one line.
 
