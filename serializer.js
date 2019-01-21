@@ -10,13 +10,25 @@
 
 'use strict';
 
-const destroyCircular = (from, seen) => {
+/**
+ * @param {boolean} errorCtx indicates if the current node is part of an error object
+ */
+const destroyCircular = (from, seen, errorCtx) => {
+	errorCtx = errorCtx || (from instanceof Error)
+
 	const to = Array.isArray(from) ? [] : {};
 
 	seen.push(from);
 
 	// TODO: Use `Object.entries() when targeting Node.js 8
 	for (const key of Object.keys(from)) {
+		// ignore "internal" fields of Error instances
+		if (errorCtx) {
+			if (key.startsWith('_')) {
+				continue
+			}
+		}
+
 		const value = from[key];
 
 		if (typeof value === 'function') {
@@ -29,7 +41,7 @@ const destroyCircular = (from, seen) => {
 		}
 
 		if (!seen.includes(from[key])) {
-			to[key] = destroyCircular(from[key], seen.slice());
+			to[key] = destroyCircular(from[key], seen.slice(), errorCtx);
 			continue;
 		}
 
@@ -49,7 +61,7 @@ const destroyCircular = (from, seen) => {
 
 module.exports = value => {
 	if (typeof value === 'object') {
-		return destroyCircular(value, []);
+		return destroyCircular(value, [], false);
 	}
 
 	// People sometimes throw things besides Error objects…
