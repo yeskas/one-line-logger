@@ -4,7 +4,7 @@ A thin layer on top of console.log() that makes sure the output stays on one lin
 
 It's particularly useful if your log-tracking tool shows the output of console.log() on multiple lines and in inverse order (e.g. Datadog, Graylog).
 
-Uses serialize-error npm library to serialize symbols and non-primitive objects.
+Uses serialize-error npm library to serialize non-primitive objects.
 
 ## Installation
 
@@ -21,5 +21,5 @@ const { _lg, _err } = require('single-line-logger')
 _lg('Error:', new Error('my multiline error #1'))
 
 // log to stderr on a single line
-_err('Error:', new Error('my multiline error#2'))
+_err('Error:', new Error('my multiline error #2'))
 ```

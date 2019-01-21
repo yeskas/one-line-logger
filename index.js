@@ -2,22 +2,34 @@ const serializeError = require('serialize-error');
 
 
 function to_one_line(obj) {
-    if (obj === null) {
-        return obj
-    }
-
+    // PRIMITIVE TYPES:
     if (obj === undefined) {
         return obj
     }
 
-    if (['boolean', 'number'].includes(typeof obj)) {
+    if (obj === null) {
+        return obj
+    }
+
+    if ((typeof obj) === 'boolean') {
+        return obj
+    }
+
+    if ((typeof obj) === 'number') {
         return obj
     }
 
     if ((typeof obj) == 'string') {
-        // escape white space
-        return JSON.stringify(obj)
+        // escape new lines
+        return obj.replace(/\r?\n|\r/g, '\\n')
     }
+
+    if ((typeof obj) == 'symbol') {
+        // convert & escape new lines
+        return obj.toString().replace(/\r?\n|\r/g, '\\n')
+    }
+
+    // NON-PRIMITIVE DATA TYPES: ARRAYS AND OBJECTS:
 
     try {
         const serialized_obj = serializeError(obj)
