@@ -22,7 +22,5 @@
     "url": "https://github.com/yeskas/single-line-logger/issues"
   },
   "homepage": "https://github.com/yeskas/single-line-logger#readme",
-  "dependencies": {
-    "serialize-error": "^3.0.0"
-  }
+  "dependencies": {}
 }

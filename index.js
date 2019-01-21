@@ -1,4 +1,4 @@
-const serializeError = require('serialize-error');
+const serialize = require('./serializer.js');
 
 
 function to_one_line(obj) {
@@ -32,7 +32,7 @@ function to_one_line(obj) {
     // NON-PRIMITIVE DATA TYPES: ARRAYS AND OBJECTS:
 
     try {
-        const serialized_obj = serializeError(obj)
+        const serialized_obj = serialize(obj)
         return JSON.stringify(serialized_obj)
 
     } catch (error) {
