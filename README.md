@@ -4,7 +4,9 @@ A thin layer on top of console.log() that makes sure the output stays on one lin
 
 It's particularly useful if your log-tracking tool shows the output of console.log() on multiple lines and in inverse order (e.g. Datadog, Graylog).
 
-Uses serialize-error npm library to serialize non-primitive objects.
+Uses serialize-error npm library to serialize non-primitive objects w/ minor tweaks that:
+- optimize memory usage
+- don't display the "internal" fields of errors (the ones that start w/ "_")
 
 ## Installation
 
