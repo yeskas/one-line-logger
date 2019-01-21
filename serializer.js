@@ -31,21 +31,23 @@ const destroyCircular = (from, seen, errorCtx) => {
 
 		const value = from[key];
 
+		// ignore functions
 		if (typeof value === 'function') {
 			continue;
 		}
 
+		// copy primitives as is
 		if (!value || typeof value !== 'object') {
 			to[key] = value;
 			continue;
 		}
 
-		if (!seen.includes(from[key])) {
-			to[key] = destroyCircular(from[key], seen.slice(), errorCtx);
-			continue;
+		// objects
+		if (seen.includes(value)) {
+			to[key] = '[Circular]';
+		} else {
+			to[key] = destroyCircular(value, seen, errorCtx);
 		}
-
-		to[key] = '[Circular]';
 	}
 
 	const commonProperties = ['name', 'message', 'stack', 'code'];
